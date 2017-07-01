@@ -1,0 +1,14 @@
+E:\NetCore\CoreDemo\CoreDemo_1\Model\bin\Debug\netcoreapp1.1\Model.deps.json
+E:\NetCore\CoreDemo\CoreDemo_1\Model\bin\Debug\netcoreapp1.1\Model.dll
+E:\NetCore\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.AssemblyInfo.cs
+E:\NetCore\CoreDemo\CoreDemo_1\Model\bin\Debug\netcoreapp1.1\Model.pdb
+E:\NetCore\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.dll
+E:\NetCore\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.pdb
+E:\NetCore\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.csprojResolveAssemblyReference.cache
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\Model\bin\Debug\netcoreapp1.1\Model.deps.json
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\Model\bin\Debug\netcoreapp1.1\Model.dll
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\Model\bin\Debug\netcoreapp1.1\Model.pdb
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.AssemblyInfo.cs
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.dll
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.pdb
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\Model\obj\Debug\netcoreapp1.1\Model.csprojResolveAssemblyReference.cache
