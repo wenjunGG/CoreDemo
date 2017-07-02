@@ -63,7 +63,9 @@ namespace CoreDemo_1
             });
             //services.AddMvc();
 
-           
+            //配置session
+            services.AddSession();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +85,10 @@ namespace CoreDemo_1
 
             app.UseStaticFiles();
 
+            //初始化dbContext
             ManageEmployeesDbInitializer.Initialize(app.ApplicationServices);
+            //加入session
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

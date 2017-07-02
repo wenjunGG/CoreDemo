@@ -28,3 +28,5 @@ E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\CoreDemo_1\bin\Debug\netcoreapp1.1\S
 E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\CoreDemo_1\bin\Debug\netcoreapp1.1\IServices.pdb
 E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\CoreDemo_1\bin\Debug\netcoreapp1.1\Model.pdb
 E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\CoreDemo_1\bin\Debug\netcoreapp1.1\Services.pdb
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\CoreDemo_1\bin\Debug\netcoreapp1.1\Common.dll
+E:\BaiduNetdiskDownload\CoreDemo\CoreDemo_1\CoreDemo_1\bin\Debug\netcoreapp1.1\Common.pdb
