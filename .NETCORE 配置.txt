@@ -1,0 +1,5 @@
+【appsettings.json】
+手动添加
+【bower.json】
+站点下面直接添加 ，自动会在依赖项里面自动建立Bower文件夹
+关于bower引用包，直接在依赖项下Bower右键添加管理Bower程序包，自动将会在Bower.json 里面自动加载配置

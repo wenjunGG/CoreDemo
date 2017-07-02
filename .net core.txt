@@ -1,0 +1,71 @@
+【project.json】
+整个文件由四个节点组成，其中version和buildOptions用来定义目标项目的版本和编译选项。dependencies在用来存放针对NuGet包的以来。
+我们创建的项目可以针对一个或者多个Framework（比如我们希望创建的可以同时在.NET Framework和.NET Core上运行），
+支持的Framework定义在frameworks节点下。如果添加了多个Framework，
+并不是说最终生成的应用可以同时在这些Framework中运行，而是说源文件在编译的时候会针对这些Framework生成对应的程序集。
+【对于nuGet包添加引用】
+对于.NET Core来说，所有使用到的程序集都被打包成一个NuGet包，所以针对程序集的直接依赖转变成针对某个NuGet包的依赖。
+针对NuGet的依赖主要有两种类型，一种是针对所有Framework的，它们会直接定义在dependencies节点下，
+另一种则是针对某个具体Framework的，定义的定义为当前Framework节点下的dependencies子节点。
+我们定义在Project.json中的设定的NuGet包可能尚未在本地安装，我们可以执行dotnet restore命令获取并在本地安装所有需要的NuGet包。
+一旦完成了针对NuGet包的回复操作，我们就可以直接执行dotnet run命令来启动应用。在这期间，我们的应用实际上会经历一个编译的过程
+，我们也可以执行dotnet build命令对其实施编译。如下面的代码片段所示，我们分别先后执行restore、build和run三个命令，目标程序最终得以执行。
+【自行指定监听地址】
+我们在利用WebHostBuilder创建WebHost，以及利用后者启动ASP.NET Core应用的整个过程中并没有显式指定Server监听的地址
+，在此情况下默认的监听地址“http://localhost:5000/”会被使用。我们也可以自行指定这个监听地址，
+该地址可以通过调用WebHostBuilder的扩展方法UseUrls来指定。如下面的代码片段所示，
+我们在利用WebHostBuilder创建WebHost之前调用UseUrls方法注册了两个监听地
+
+【MVC的Middleware实现了路由、Controller的激活、Action方法的执行以及View的呈现。】
+
+【MVC 定义control 】
+ASP.NET Core MVC不像之前的MVC版本要求Controller实现IController接口，直接当作类来使用
+实现mvc还是一般实现control基类
+它可以是一个普通一个以Controller为后缀命名的公共类型。
+我们在HomeController中定义的Action方法Index，
+该方法上应用HttpGetAttribute以特性注入的形式注册了模板为“/{name}”的路由。(不同点)
+【添加View】
+和一般mvc 一样‘，默认返回ViewResult对象，包含传参，都差不多一样，都采用viewbag
+同样也是存在于对应文件夹下面
+
+
+
+
+
+
+
+
+【引用的包(通过NuGet)】
+1.Microsoft.AspNetCore.Mvc":"1.0.0【mvc】
+2.Microsoft.AspNetCore.Razor.Tools【Razor】
+
+【不同之处】
+1.基于View动态编译的需要，我们需要添加一个名为“preserveCompilationContext”的编译选项，并将其值设置为true
+【bower.json】
+引用js ，css ，image 图片
+【bundleconfig.json】
+是一个压缩包的集合文件（这个不是很明白）
+
+【以来注册】
+http://www.cnblogs.com/zh1990/p/5674128.html
+.net core中的DI容器的主要对象就是ServiceProvider、ServiceCallSite、Service、ServiceEntry和ServiceTable。
+主要的流程控制都放在ServiceProvider类中，这个类有一个ServiceTable（就是ServiceType和ServiceEntry的对应列表）。
+ServiceEntry就是一个链表，链接了当前ServiceType的所有的实例（不过得到的实例总是以最后一个为准），
+实例的类型都是Service类型。Service主要就是获取ServiceCallSite对象，这个对象就是封装了所有的获取具体服务实例的逻辑，
+主要通过Invoke得到实例，再调用Build生成表达式委托，存在ServiceProvider中。
+
+ServiceProvider主要有一个方法GetService获取服务实例。主要逻辑就是从RealizedServices 获取当前服务的实例，
+如果有，直接返回，如果没有，会从ServiceTable中找到对应的ServiceEntry，如果没有返回null，
+如果有，调用ServiceEntry所在列表最后一个Service的CreateServiceCallSite方法创建一个ServiceCallSite对象
+（这一点说明了如果针对同一个服务类型注册了多个ServiceDescriptor，在提供单个服务的时候总是使用最后一个 ServiceDescriptor）。
+
+http://www.cnblogs.com/artech/p/asp-net-core-di-di.html
+http://www.cnblogs.com/artech/p/asp-net-core-di-di.html
+（工厂模式）
+
+【以来注册的方式】
+   构造器注入
+    属性注入
+    方法注入
+【视屏】
+http://list.youku.com/albumlist/show?id=49039302&ascending=1&page=1

@@ -1,0 +1,39 @@
+【TagHelper的使用】Microsoft.AspNetCore.Razor.Tools
+  【创建视图导入页】_ViewImports.cshtml
+  修改视图导入页的内容如下：
+  @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+【 使用Microsoft.AspNetCore.Razor.Tools】
+  Microsoft.AspNetCore.Razor.Tools
+注意：如果安装完Microsoft.AspNetCore.Razor.Tools时不会出现智能提示，重启一下Visual Studio即可。
+
+【.net core 入坑经验 - 3、MVC Core之jQuery不能使用了？】
+找到模板文件_Layout.cshtml在页面下方看到@RenderSection("Scripts", required: false)  于是回到View文件中将script代码放置在范围中，
+最终运行时会将@section Scripts 之间的代码放到@RenderSection这个占位符的位置，从而问题解决
+@section Scripts
+{
+    <script type="text/javascript" language="javascript">
+        $().ready(function () {
+            $("#imgQRCode").hide();
+        });
+    </script>
+}
+【jQuery 2.0.3 源码分析之core（一）整体架构】
+ http://www.jb51.net/article/50449.htm
+
+【前端页面要引用Model】
+需要在_ViewImports 引用Model
+如:
+@using CoreDemo_1
+@using Model //引用实体
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+【TagHelper详细】
+关键说明
+@model LoginModel  指定页面绑定的模型为LoginModel。
+asp-controller 指定form标签提交时对应的控制器名称。
+asp-action 指定form标签提交时对应的Action名称。
+asp-for 指定HTML元素绑定的模型对应的属性名称。
+asp-validation-for 绑定对应模型属性名称，模型验证失败时，显示模型定义的ErrorMessage。
+asp-validation-summary="All" 显示所有验证失败的错误信息。

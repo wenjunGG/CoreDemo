@@ -1,0 +1,93 @@
+1.ioc
+2.code first
+3.认证
+4.日志
+5.缓存
+6.跨域
+7.api
+
+【Tag Helpers 和 HTML Helpers 比较】
+
+
+
+【TagHelper的使用】Microsoft.AspNetCore.Razor.Tools
+TagHelper是Asp.Net Core中提供的全新的服务端代码参与创建和渲染 HTML 元素的方法，TagHelpers 在 Razor视图中减少或避免了 HTML 和 C# 之间的显示转换，它具有以下特点：
+一种友好的Html开发体验
+   Razor 标记使用 Tag Helpers 看起来更像标准的 HTML。熟悉 HTML/CSS/JavaScript 的前端设计师在没有学习 C# Razor 语法的情况下能够编辑 Razor 。
+提供丰富的智能感知环境来创建 HTML和Razor标记
+通过Microsoft.AspNetCore.Razor.Tools提供智能感知和智能提醒，大大提高编码效率。
+提供服务器端更强大，更可靠和可维护代码的html渲染方式
+   TagHelper的使用一般放在“视图导入页”中，视图导入页中还会放置我们会用到的服务端引用。
+
+Microsoft.AspNetCore.Razor.Tools能够提供TagHelper的智能感知提示和代码加粗高亮显示。
+   一个完整的使用TagHelper的label标签创建完成后，会以加粗高亮的方式显示。
+       你自己可以根据喜好在 工具 > 选项 > 环境 > 字体和颜色 中自定义TagHelperElement的字体和颜色
+   注意：如果安装完Microsoft.AspNetCore.Razor.Tools时不会出现智能提示，重启一下Visual Studio即可。
+
+【创建视图导入页】_ViewImports.cshtml
+修改视图导入页的内容如下：
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+【VisualStudio2017下ASP.NET CORE的TagHelper智能提示不能使用的解决办法】
+ http://www.cnblogs.com/Leo_wl/p/6539371.html
+ https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices（Razor Language Services下载链接）
+
+【自定义Tag Helpers】
+http://blog.csdn.net/yinjing8435/article/details/71274480
+
+【Asp.Net Core中Session中间件的使用】
+依赖项添加
+ Microsoft.AspNetCore.Session 1.1.1
+1 修改Startup.cs文件的的ConfigureServices方法，增加Session服务注册
+    //Session服务
+    services.AddSession();
+2 修改Startup.cs文件的的Configure方法，请求管道中启用Session
+    //Session
+    app.UseSession();
+   备注：SeedData.Initialize(app.ApplicationServices); //初始化数据
+
+【Byte数组与对象转换帮助类ByteConvertHelper】
+ public class ByteConvertHelper
+{
+    /// <summary>
+    /// 将对象转换为byte数组
+    /// </summary>
+    /// <param name="obj">被转换对象</param>
+    /// <returns>转换后byte数组</returns>
+    public static byte[] Object2Bytes(object obj)
+    {
+        string json = JsonConvert.SerializeObject(obj);
+        byte[] serializedResult = System.Text.Encoding.UTF8.GetBytes(json);
+        return serializedResult;
+    }
+
+    /// <summary>
+    /// 将byte数组转换成对象
+    /// </summary>
+    /// <param name="buff">被转换byte数组</param>
+    /// <returns>转换完成后的对象</returns>
+    public static object Bytes2Object(byte[] buff)
+    {
+        string json = System.Text.Encoding.UTF8.GetString(buff);
+        return JsonConvert.DeserializeObject<object>(json);
+    }
+
+    /// <summary>
+    /// 将byte数组转换成对象
+    /// </summary>
+    /// <param name="buff">被转换byte数组</param>
+    /// <returns>转换完成后的对象</returns>
+    public static T Bytes2Object<T>(byte[] buff)
+    {
+        string json = System.Text.Encoding.UTF8.GetString(buff);
+        return JsonConvert.DeserializeObject<T>(json);
+    }
+}
+
+【 使用Microsoft.AspNetCore.Razor.Tools】
+  Microsoft.AspNetCore.Razor.Tools
+注意：如果安装完Microsoft.AspNetCore.Razor.Tools时不会出现智能提示，重启一下Visual Studio即可。
+
+【Tag Helpers 介绍】
+http://www.cnblogs.com/Leo_wl/p/5891950.html
+ 

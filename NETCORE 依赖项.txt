@@ -1,0 +1,7 @@
+【依赖项】
+
+【安装 d3 绘图引擎】
+在bower下面 安装d3
+
+【JsonConvert】
+Microsoft.Extensions.Configuration.Json 1.1.1
