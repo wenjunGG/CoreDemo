@@ -90,6 +90,18 @@ namespace CoreDemo_1
             //加入session
             app.UseSession();
 
+            //cookie
+            app.UseCookieAuthentication(new CookieAuthenticationOptions()
+            {
+                AuthenticationScheme = "MyCookieMiddlewareInstance",
+                LoginPath = new PathString("/UserInfo/Login/"),
+                AccessDeniedPath = new PathString("/UserInfo/NoOpertion/"),
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true,
+                CookiePath = "/" });
+
+
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
