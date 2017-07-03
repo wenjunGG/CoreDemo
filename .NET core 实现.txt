@@ -2,3 +2,37 @@
 
 【用户登录实现】
  
+【cookie】
+http://www.cnblogs.com/cmt/p/5940796.html
+对于cookie的加解密，传统asp.net用的是对称加解密算法，而asp.net core用的是基于公钥私钥的非对称加解密算法，
+所以asp.net core无法解密传统asp.net生成的cookie，传统asp.net也无法解密asp.net core生成的cookie
+【cookie实现登陆】
+http://www.th7.cn/Program/net/201610/995590.shtml
+
+ var identity = new ClaimsIdentity("AccountLogin");
+            identity.AddClaim(new Claim(ClaimTypes.Name, "Test"));
+            identity.AddClaim(new Claim("AccountID", "1"));
+            identity.AddClaim(new Claim("Modules", "1,2,3"));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
+            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+             HttpContext.Authentication.SignInAsync("MyCookieMiddlewareInstance",principal, 
+                new AuthenticationProperties {
+                   IsPersistent = true, ExpiresUtc = DateTime.UtcNow.AddMinutes(20),
+                });
+
+
+这里解释一下  AuthenticationScheme 对应cookie的名字
+LoginPath 如果没有登陆，登陆页面的路径
+AccessDeniedPath 如果权限不够返回的页面 
+CookiePath  cookie可用的范围，这个功能我还没用过，应该可以实现前台和后台登陆的区分。
+
+[Authorize(Roles = "Admin")] 权限控制
+
+获取用户信息：
+var accountID = User.FindFirst("AccountID").Value;
+
+
+登陆退出：
+ HttpContext.Authentication.SignOutAsync("MyCookieMiddlewareInstance");
+
+
