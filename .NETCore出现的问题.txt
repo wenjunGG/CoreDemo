@@ -50,3 +50,9 @@ http://www.cnblogs.com/akini/archive/2013/01/30/2882767.html
 AddColumn("Tests", "LastChanged", c => c.DateTime(nullable: false);
 修改为
 AddColumn("Tests", "LastChanged", c => c.DateTimeOffset(nullable: false, defaultValueSql: "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
+
+
+注意:字段为DATE或者其他的类型时包错:ERROR   1067:   Invalid   default   value   for   'time' 
+     date类型不能有默认值 。 
+     你改成DATETIME就可以了。
+     我怀疑这可能与mysql 的本版之间是有关系的  在MySQL Workbench 为Data 是可以运行的
