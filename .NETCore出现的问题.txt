@@ -47,12 +47,13 @@ vs2017出现的问题
 5.【关于MySql时间问题】
 http://www.cnblogs.com/akini/archive/2013/01/30/2882767.html
 
+二中方案(二选一，但第二个比较可靠)
 1.
 AddColumn("Tests", "LastChanged", c => c.DateTime(nullable: false);
 修改为
 AddColumn("Tests", "LastChanged", c => c.DateTimeOffset(nullable: false, defaultValueSql: "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
 
-2.在BuildModel 里面
+2.在BuildModel 里面 
 .HasDefaultValue("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
 
 
