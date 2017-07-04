@@ -47,9 +47,13 @@ vs2017出现的问题
 5.【关于MySql时间问题】
 http://www.cnblogs.com/akini/archive/2013/01/30/2882767.html
 
+1.
 AddColumn("Tests", "LastChanged", c => c.DateTime(nullable: false);
 修改为
 AddColumn("Tests", "LastChanged", c => c.DateTimeOffset(nullable: false, defaultValueSql: "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
+
+2.在BuildModel 里面
+.HasDefaultValue("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
 
 
 注意:字段为DATE或者其他的类型时包错:ERROR   1067:   Invalid   default   value   for   'time' 
